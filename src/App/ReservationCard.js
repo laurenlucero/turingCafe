@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReservationCard = ({ name, date, time, number, id }) => {
+const ReservationCard = ({ id, name, date, time, number }) => {
   return (
     <div className="reservation-card">
       <h2>{name}</h2>

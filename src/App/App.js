@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { fetchReservations } from "../apiFetch.js";
 import ReservationContainer from "./ReservationContainer";
+import ReservationForm from "./ReservationForm";
 
 class App extends Component {
   constructor() {
@@ -17,11 +18,20 @@ class App extends Component {
       .catch((error) => console.error(error));
   };
 
+  saveReservation = (newReservation) => {
+    this.setState({
+      reservations: [...this.state.reservations, newReservation],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1 className="app-title">Turing Cafe Reservations</h1>
-        <div className="resy-form"></div>
+        <ReservationForm
+          reservations={this.state.reservations}
+          saveReservation={this.saveReservation}
+        />
         <ReservationContainer reservations={this.state.reservations} />
       </div>
     );

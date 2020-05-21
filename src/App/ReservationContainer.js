@@ -3,7 +3,7 @@ import ReservationCard from "./ReservationCard";
 
 const ReservationContainer = ({ reservations }) => {
   const reservationCards = reservations.map((reservation) => {
-    return <ReservationCard {...reservation} />;
+    return <ReservationCard {...reservation} key={reservation.id} />;
   });
   return <div className="reservations">{reservationCards}</div>;
 };
