@@ -56,19 +56,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* 
-Components
--App
--ReservationContainer
--ReservationCard
--ReservationForm
-
--apiFetch
-
-1. Display reservations on the DOM
-2. Build controlled form component to create a reservation
-3. Test -form component -App integration
-
-...extensions
-*/
