@@ -7,7 +7,7 @@ class Form extends Component {
       name: "",
       date: "",
       time: "",
-      guests: "",
+      number: "",
     };
   }
 
@@ -18,15 +18,18 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const newReservation = {
-      id: Date.now(),
-      ...this.state,
+      id: this.props.reservations.length + 1,
+      name: this.state.name,
+      date: this.state.date,
+      time: this.state.time,
+      number: +this.state.number,
     };
     this.props.saveReservation(newReservation);
     this.clearInputs();
   };
 
   clearInputs = () => {
-    this.setState({ name: "", date: "", time: "", guests: "" });
+    this.setState({ name: "", date: "", time: "", number: "" });
   };
 
   render() {
@@ -54,10 +57,10 @@ class Form extends Component {
           onChange={this.handleChange}
         />
         <input
-          type="text"
-          name="guests"
+          type="number"
+          name="number"
           placeholder="Number of guests"
-          value={this.state.guests}
+          value={this.state.number}
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Make Reservation</button>
