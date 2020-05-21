@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { fetchReservations } from "../apiFetch.js";
+import { fetchReservations, postReservation } from "../apiFetch.js";
 import ReservationContainer from "./ReservationContainer";
 import ReservationForm from "./ReservationForm";
 
@@ -22,6 +22,13 @@ class App extends Component {
     this.setState({
       reservations: [...this.state.reservations, newReservation],
     });
+    this.postNewReservation(newReservation);
+  };
+
+  postNewReservation = async ({ name, date, time, number }) => {
+    postReservation(name, date, time, number)
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
   };
 
   cancelReservation = (id) => {
