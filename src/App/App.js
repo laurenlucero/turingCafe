@@ -24,6 +24,13 @@ class App extends Component {
     });
   };
 
+  cancelReservation = (id) => {
+    const reservations = this.state.reservations.filter(
+      (reservation) => reservation.id !== id
+    );
+    this.setState({ reservations });
+  };
+
   render() {
     return (
       <div className="App">
@@ -32,7 +39,10 @@ class App extends Component {
           reservations={this.state.reservations}
           saveReservation={this.saveReservation}
         />
-        <ReservationContainer reservations={this.state.reservations} />
+        <ReservationContainer
+          reservations={this.state.reservations}
+          cancelReservation={this.cancelReservation}
+        />
       </div>
     );
   }
