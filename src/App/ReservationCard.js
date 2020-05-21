@@ -4,11 +4,9 @@ const ReservationCard = ({ name, date, time, number, id }) => {
   return (
     <div className="reservation-card">
       <h2>{name}</h2>
-      <ul>
-        <li>{date}</li>
-        <li>{time}</li>
-        <li>Guests: {number}</li>
-      </ul>
+      <p>{date}</p>
+      <p>{time}</p>
+      <p>Guests: {number}</p>
       <button>Cancel</button>
     </div>
   );
